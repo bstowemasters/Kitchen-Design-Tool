@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class RotateCamera : MonoBehaviour
 {
     public float rotationSpeed = 10; // The speed at which the camera rotates
-
+    public float scrollSpeed = 10.0f;
+    public float translateXSpeed = 1;
+    public float translateYSpeed = 1f;
     void Update()
     {
         // Check if the right mouse button is pressed
@@ -18,14 +21,21 @@ public class RotateCamera : MonoBehaviour
             float rotationX = Input.GetAxis("Mouse X") * rotationSpeed;
             float rotationY = Input.GetAxis("Mouse Y") * rotationSpeed;
 
-            // Rotate the camera
+            // Tilt the camera
             transform.Rotate(-rotationY, rotationX, 0);
+            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, 0);
+            
+           
         } else if (Input.GetMouseButton(2))
         {
-            float moveY = Input.GetAxis("Mouse Y") * rotationSpeed;
-            float moveX = Input.GetAxis("Mouse X") * rotationSpeed;
+            float moveX = Input.GetAxis("Mouse X") * translateXSpeed;   // Sets adjustable move speed that can be used in unity environment.
+            float moveY = Input.GetAxis("Mouse Y") * translateYSpeed;
+            transform.position += transform.up * -moveY;    // Uses inverted Y scroll amount for flipped controls.
+            transform.position += transform.right * -moveX; // Calculates movement amount by multiplying scroll amount by speed specified.
+        } 
 
-            // Do something to move camera up and left/right
-        }
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        transform.position += transform.forward * scroll * scrollSpeed * Time.deltaTime;
+
     }
 }

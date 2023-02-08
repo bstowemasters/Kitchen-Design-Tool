@@ -28,7 +28,7 @@ public class SelectProduct : MonoBehaviour
     {
         Material material = selectedProduct.GetComponent<Renderer>().material;
         Color color = material.color;
-        color.r = Mathf.Clamp01(color.b * 0.5f);
+        color.r = Mathf.Clamp01(color.r * 0.5f);
         material.color = color;
         Debug.Log("New Colour: " + material.color);
     }

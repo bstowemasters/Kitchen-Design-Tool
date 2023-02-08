@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4999361373836906359, guid: 4c3fd40e722668c46b0683557f47ac3a, type: 3}
+  - {fileID: 2100000, guid: 0e0243c0afa64f44c8c599c1560df049, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -144,7 +144,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 6342377138367097389, guid: 4c3fd40e722668c46b0683557f47ac3a, type: 3}
+  - {fileID: 2100000, guid: 0e0243c0afa64f44c8c599c1560df049, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -175,6 +175,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3405799513390142782}
+  - component: {fileID: 4362978355631687990}
+  - component: {fileID: -2889455504611819118}
   m_Layer: 0
   m_Name: 60CM Wall Cabinet_BridgingUnit
   m_TagString: Untagged
@@ -204,6 +206,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -180}
+--- !u!54 &4362978355631687990
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2596329790480912260}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 1
+--- !u!65 &-2889455504611819118
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2596329790480912260}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6141646, y: 0.63095695, z: 0.3643527}
+  m_Center: {x: -0.61180544, y: -0.31239548, z: 1.9773467}
 --- !u!1 &2609706901658139777
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,7 +296,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1726534036909356497, guid: 4c3fd40e722668c46b0683557f47ac3a, type: 3}
+  - {fileID: 2100000, guid: 0e0243c0afa64f44c8c599c1560df049, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -348,7 +379,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 3279083683716234235, guid: 4c3fd40e722668c46b0683557f47ac3a, type: 3}
+  - {fileID: 2100000, guid: 0e0243c0afa64f44c8c599c1560df049, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -431,7 +462,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -1201518189022746761, guid: 4c3fd40e722668c46b0683557f47ac3a, type: 3}
+  - {fileID: 2100000, guid: 0e0243c0afa64f44c8c599c1560df049, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -514,7 +545,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 3455070834478238848, guid: 4c3fd40e722668c46b0683557f47ac3a, type: 3}
+  - {fileID: 2100000, guid: 0e0243c0afa64f44c8c599c1560df049, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -597,7 +628,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1211245218548031782, guid: 4c3fd40e722668c46b0683557f47ac3a, type: 3}
+  - {fileID: 2100000, guid: f373ab9a045c7e64c87660318f7049a1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
