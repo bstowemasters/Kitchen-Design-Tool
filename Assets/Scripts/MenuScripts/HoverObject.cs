@@ -10,6 +10,7 @@ public class HoverObject : MonoBehaviour
     public GameObject unitPrefab;
     public Button button;
     private GameObject hologram;
+    private Vector3 mouseOffset;
 
     private void Start()
     {
