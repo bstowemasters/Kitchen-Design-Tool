@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class clickSound : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public AudioSource click;
+    // Start is called before the first frame update
+    public void playClickSound()
     {
-        
+        click.Play();
     }
 }
