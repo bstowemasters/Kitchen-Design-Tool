@@ -15,14 +15,14 @@ public class HoverObject : MonoBehaviour
 
     private void Start()
     {
-        button.onClick.AddListener(CreateHologram); // Listen for a button press.
+        button.onClick.AddListener(CreateHologram); // Listen for a button press. Run create hologram when clicked.
     }
 
     private void CreateHologram()
     {
        
         hologram = Instantiate(unitPrefab); // Creates a new instance of the gameObject.
-        hologram.SetActive(true);           // Makes sure you can see it.
+        hologram.SetActive(true);           // Sets the prefabs state to active, so the prefab can be seen.
 
     }
 
@@ -36,7 +36,7 @@ public class HoverObject : MonoBehaviour
 
         if (hologram != null)   // Checks if the prefab has been set.
         {
-            worldPos.z = Camera.main.nearClipPlane + 3 - mousePos.y / 100;
+            worldPos.z = Camera.main.nearClipPlane - 3 + mousePos.y / 100;
             worldPos.y = Camera.main.nearClipPlane - 0.25f;
             hologram.transform.position = worldPos; // Hovers the prefab over the current mouse pos.
 

@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Drag
+  - 2DView
   layers:
   - Default
   - TransparentFX
