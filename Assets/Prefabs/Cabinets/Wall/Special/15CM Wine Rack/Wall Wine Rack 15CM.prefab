@@ -677,7 +677,7 @@ GameObject:
   - component: {fileID: 1948797238306643605}
   m_Layer: 0
   m_Name: Wall Wine Rack 15CM
-  m_TagString: Untagged
+  m_TagString: Cabinet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1076165798914883687}
   m_Layer: 0
   m_Name: Door_(4)
-  m_TagString: Untagged
+  m_TagString: Doors
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -345,7 +345,7 @@ GameObject:
   - component: {fileID: -5387261116716206970}
   m_Layer: 0
   m_Name: Kitchen Cabinets_60CM Wall Cabinet
-  m_TagString: Untagged
+  m_TagString: Cabinet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

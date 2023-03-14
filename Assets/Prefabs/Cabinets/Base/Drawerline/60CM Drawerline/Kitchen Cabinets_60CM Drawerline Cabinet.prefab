@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 7921558846267371316}
   m_Layer: 0
   m_Name: Door
-  m_TagString: Untagged
+  m_TagString: Doors
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -770,7 +770,7 @@ GameObject:
   - component: {fileID: 44247950709890805}
   m_Layer: 0
   m_Name: Worktop
-  m_TagString: Untagged
+  m_TagString: Worktop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -853,7 +853,7 @@ GameObject:
   - component: {fileID: 3456719064152428741}
   m_Layer: 0
   m_Name: Drawer_Front
-  m_TagString: Untagged
+  m_TagString: Doors
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -936,7 +936,7 @@ GameObject:
   - component: {fileID: 3076155835834871687}
   m_Layer: 0
   m_Name: Plinth
-  m_TagString: Untagged
+  m_TagString: Doors
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

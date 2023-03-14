@@ -7,6 +7,9 @@ TagManager:
   - Drag
   - 2DView
   - Floor
+  - Doors
+  - Worktop
+  - Cabinet
   layers:
   - Default
   - TransparentFX

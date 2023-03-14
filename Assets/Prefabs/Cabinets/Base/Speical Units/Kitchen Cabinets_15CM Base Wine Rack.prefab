@@ -677,7 +677,7 @@ GameObject:
   - component: {fileID: 2302952570881430206}
   m_Layer: 0
   m_Name: Worktop_(8)
-  m_TagString: Untagged
+  m_TagString: Worktop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -761,7 +761,7 @@ GameObject:
   - component: {fileID: 7718216954239125293}
   m_Layer: 0
   m_Name: Kitchen Cabinets_15CM Base Wine Rack
-  m_TagString: Untagged
+  m_TagString: Cabinet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -930,7 +930,7 @@ GameObject:
   - component: {fileID: 1988639064011938651}
   m_Layer: 0
   m_Name: Plinth_(8)
-  m_TagString: Untagged
+  m_TagString: Doors
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

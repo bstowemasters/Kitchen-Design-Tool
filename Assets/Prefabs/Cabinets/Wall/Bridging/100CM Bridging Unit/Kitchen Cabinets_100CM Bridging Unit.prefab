@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 1113437284150125839}
   m_Layer: 0
   m_Name: Door_(6)
-  m_TagString: Untagged
+  m_TagString: Doors
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 7434420792349261724}
   m_Layer: 0
   m_Name: Kitchen Cabinets_100CM Bridging Unit
-  m_TagString: Untagged
+  m_TagString: Cabinet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 4640334544927286678}
   m_Layer: 0
   m_Name: Door_(5)
-  m_TagString: Untagged
+  m_TagString: Doors
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

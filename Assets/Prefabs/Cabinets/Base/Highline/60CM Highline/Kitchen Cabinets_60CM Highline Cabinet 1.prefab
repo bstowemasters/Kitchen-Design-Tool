@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 3612647443675729239}
   m_Layer: 0
   m_Name: Kitchen Cabinets_60CM Highline Cabinet 1
-  m_TagString: Untagged
+  m_TagString: Cabinet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 8937168366044096453}
   m_Layer: 0
   m_Name: Worktop_(2)
-  m_TagString: Untagged
+  m_TagString: Worktop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -514,7 +514,7 @@ GameObject:
   - component: {fileID: 4489588911457785740}
   m_Layer: 0
   m_Name: Plinth_(2)
-  m_TagString: Untagged
+  m_TagString: Doors
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -763,7 +763,7 @@ GameObject:
   - component: {fileID: 701866110160646675}
   m_Layer: 0
   m_Name: Door_(2)
-  m_TagString: Untagged
+  m_TagString: Doors
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

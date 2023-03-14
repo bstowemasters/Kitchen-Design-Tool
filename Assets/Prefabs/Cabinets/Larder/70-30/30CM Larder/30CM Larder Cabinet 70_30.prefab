@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 7048022776524417864}
   m_Layer: 0
   m_Name: TopDoor_(2)
-  m_TagString: Untagged
+  m_TagString: Doors
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -511,7 +511,7 @@ GameObject:
   - component: {fileID: 8215975686059499684}
   m_Layer: 0
   m_Name: Plinth_(5)
-  m_TagString: Untagged
+  m_TagString: Doors
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -595,7 +595,7 @@ GameObject:
   - component: {fileID: 7850431017528263759}
   m_Layer: 0
   m_Name: 30CM Larder Cabinet 70_30
-  m_TagString: Untagged
+  m_TagString: Cabinet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1182,7 +1182,7 @@ GameObject:
   - component: {fileID: 6317905784262946809}
   m_Layer: 0
   m_Name: BottomDoor_(2)
-  m_TagString: Untagged
+  m_TagString: Doors
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
