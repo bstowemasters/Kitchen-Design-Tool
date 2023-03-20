@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12221,6 +12221,8 @@ MonoBehaviour:
   changeMaterialBtn: {fileID: 677089789}
   newMaterial: {fileID: 2100000, guid: 1ed4d19cc9332ed4b8684427efe5a0bb, type: 2}
   isWorktop: 0
+  isDoor: 1
+  isHandle: 0
 --- !u!114 &677089789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12869,6 +12871,8 @@ MonoBehaviour:
   changeMaterialBtn: {fileID: 713525532}
   newMaterial: {fileID: 2100000, guid: 6f014415b77da9744a5940db205a57d2, type: 2}
   isWorktop: 0
+  isDoor: 1
+  isHandle: 0
 --- !u!114 &713525532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19092,7 +19096,7 @@ GameObject:
   - component: {fileID: 1101152842}
   m_Layer: 0
   m_Name: Wall Left
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20510,7 +20514,7 @@ GameObject:
   - component: {fileID: 1207038661}
   m_Layer: 0
   m_Name: Wall RIght
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24676,6 +24680,8 @@ MonoBehaviour:
   changeMaterialBtn: {fileID: 1388938302}
   newMaterial: {fileID: 2100000, guid: 8c4d47bd689d9e646ac25f55db31f038, type: 2}
   isWorktop: 1
+  isDoor: 0
+  isHandle: 0
 --- !u!114 &1388938302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34741,6 +34747,8 @@ MonoBehaviour:
   changeMaterialBtn: {fileID: 1878387010}
   newMaterial: {fileID: 2100000, guid: 1ed4d19cc9332ed4b8684427efe5a0bb, type: 2}
   isWorktop: 1
+  isDoor: 0
+  isHandle: 0
 --- !u!1 &1881245972
 GameObject:
   m_ObjectHideFlags: 0
@@ -35623,7 +35631,7 @@ GameObject:
   - component: {fileID: 1961129192}
   m_Layer: 0
   m_Name: Wall Back
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35721,7 +35729,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!1 &1961591283
 GameObject:
   m_ObjectHideFlags: 0

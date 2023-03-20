@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class DragObject : MonoBehaviour
 {
@@ -10,13 +11,16 @@ public class DragObject : MonoBehaviour
 
     private Rigidbody rb;
     private bool objCollision = false;
+    private bool onlyFreezeX = false;
 
     //private Camera mainCam;
 
     private void Start()
     {
+        
+
         rb = gameObject.GetComponent<Rigidbody>();
-        rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
+        rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
 
         GameObject floor = GameObject.FindGameObjectWithTag("Floor");
         Physics.IgnoreCollision(GetComponent<Collider>(), floor.GetComponent<Collider>());
@@ -47,7 +51,7 @@ public class DragObject : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if (objCollision == false)
+        if (!objCollision)
         {
             newWorldCoords = transform.position;                        // Starts moving object.
             newWorldCoords.x = GetMouseWorldPos().x + mouseOffset.x;    // Shows the object at the correct screen position in the scene.
@@ -59,7 +63,6 @@ public class DragObject : MonoBehaviour
         } else
         {
             rb.constraints = RigidbodyConstraints.FreezeAll;            // Stops the object moving inside another.
-
         }
 
 
@@ -71,6 +74,14 @@ public class DragObject : MonoBehaviour
         {
             objCollision = true;
         }
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            onlyFreezeX = true; // Could be used to only stop collisions on z axis when hitting wall.
+        }
     }
 
+    private void OnCollisionExit(Collision collision)
+    {
+
+    }
 }

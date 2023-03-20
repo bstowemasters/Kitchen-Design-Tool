@@ -11,6 +11,7 @@ TagManager:
   - Worktop
   - Cabinet
   - Handle
+  - Wall
   layers:
   - Default
   - TransparentFX
