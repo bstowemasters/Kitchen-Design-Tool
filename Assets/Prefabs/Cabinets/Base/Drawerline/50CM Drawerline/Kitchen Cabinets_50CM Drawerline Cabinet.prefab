@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 907820740685960600}
   m_Layer: 0
   m_Name: Kitchen Cabinets_50CM Drawerline Cabinet
-  m_TagString: Untagged
+  m_TagString: Cabinet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,8 +149,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 122
-  m_CollisionDetection: 1
+  m_Constraints: 126
+  m_CollisionDetection: 2
 --- !u!65 &4042983025565461201
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1185,7 +1185,7 @@ GameObject:
   - component: {fileID: 7499808647618048553}
   m_Layer: 0
   m_Name: DrawerHandle_(2)
-  m_TagString: Untagged
+  m_TagString: Handle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1268,7 +1268,7 @@ GameObject:
   - component: {fileID: 326067679459822579}
   m_Layer: 0
   m_Name: DoorHandle_(2)
-  m_TagString: Untagged
+  m_TagString: Handle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

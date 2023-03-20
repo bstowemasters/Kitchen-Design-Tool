@@ -10,6 +10,7 @@ TagManager:
   - Doors
   - Worktop
   - Cabinet
+  - Handle
   layers:
   - Default
   - TransparentFX
