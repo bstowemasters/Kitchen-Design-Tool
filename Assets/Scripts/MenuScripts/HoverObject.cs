@@ -38,8 +38,10 @@ public class HoverObject : MonoBehaviour
         if (hologram != null)   // Checks if the prefab has been set.
         {
             worldPos.z = Camera.main.nearClipPlane - 3 + mousePos.y / 100;
+            worldPos = new Vector3(Mathf.Round(worldPos.x) / 10, worldPos.z , worldPos.y);
             worldPos.y = Camera.main.nearClipPlane - 0.25f;     // Shows the prefab slightly above the ground when hovering.
             hologram.transform.position = worldPos; // Hovers the prefab over the current mouse pos.
+
 
         }
 
