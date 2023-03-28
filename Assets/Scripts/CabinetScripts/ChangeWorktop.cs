@@ -9,7 +9,7 @@ public class ChangeWorktop : MonoBehaviour
     public bool isWorktop;    // check which object to change material. (used to reduce replicated code)
     public bool isDoor;
     public bool isHandle;
-    Renderer renderer;        // Creates renderer object to change material.
+    new Renderer renderer;        // Creates renderer object to change material.
 
     private void Start()
     {

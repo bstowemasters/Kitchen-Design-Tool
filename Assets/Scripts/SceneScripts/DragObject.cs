@@ -106,6 +106,6 @@ public class DragObject : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-
+        
     }
 }
