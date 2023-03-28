@@ -10,8 +10,10 @@ public class DragObject : MonoBehaviour
     private Vector3 newWorldCoords;
 
     private Rigidbody rb;
-    private bool objCollision = false;
+    public bool objCollision = false;
     private bool onlyFreezeX = false;
+    private bool onlyFreezeY = false;
+    public Vector3 currentPos;
 
     //private Camera mainCam;
 
@@ -31,10 +33,13 @@ public class DragObject : MonoBehaviour
     {
         objCollision = false;   // Resets collision detection after object has collided.
 
+
         mouseZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;  // Selects main camera and gets z pos
 
         // calculates the mouse offset from the camera and object
         mouseOffset = gameObject.transform.position - GetMouseWorldPos();
+
+
     }
 
     private Vector3 GetMouseWorldPos()
@@ -45,12 +50,15 @@ public class DragObject : MonoBehaviour
         // Stores the z position in variable.
         mousePoint.z = mouseZCoord;
 
+        
+
         // returns the mouse position
         return Camera.main.ScreenToWorldPoint(mousePoint);
     }
 
     private void OnMouseDrag()
     {
+
         if (!objCollision)
         {
             newWorldCoords = transform.position;                        // Starts moving object.
@@ -60,7 +68,19 @@ public class DragObject : MonoBehaviour
             //newWorldCoords.y = 0.000000001f;                            // Resets y position to floor.
             
             transform.position = newWorldCoords;                        // Updates ovjects position.
-        } else
+        } else if (onlyFreezeX)
+        {
+            newWorldCoords = transform.position;                        // Starts moving object.
+            newWorldCoords.x = GetMouseWorldPos().x + mouseOffset.x;
+            transform.position = newWorldCoords;
+        } else if (onlyFreezeY)
+        {
+            newWorldCoords = transform.position;                        // Starts moving object.
+            newWorldCoords.z = GetMouseWorldPos().y + mouseOffset.y;
+            transform.position = newWorldCoords;
+        }
+
+        else
         {
             rb.constraints = RigidbodyConstraints.FreezeAll;            // Stops the object moving inside another.
         }
@@ -77,6 +97,10 @@ public class DragObject : MonoBehaviour
         if (collision.gameObject.CompareTag("Wall"))
         {
             onlyFreezeX = true; // Could be used to only stop collisions on z axis when hitting wall.
+        }
+        if (collision.gameObject.CompareTag("Cabinet"))
+        {
+            onlyFreezeY = true;
         }
     }
 
