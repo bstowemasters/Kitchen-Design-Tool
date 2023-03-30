@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ChangeWorktop : MonoBehaviour
+public class ChangeMaterial : MonoBehaviour
 {
     public Button changeMaterialBtn;    // Selects which button triggers script.
     public Material newMaterial;        // Holds new worktop/door material to replace existing.
@@ -13,10 +13,15 @@ public class ChangeWorktop : MonoBehaviour
 
     private void Start()
     {
-        changeMaterialBtn.onClick.AddListener(ChangeMaterial); // Listen for a button press. Run change worktop function when clicked
+        changeMaterialBtn.onClick.AddListener(ReplaceMaterial); // Listen for a button press. Run change worktop function when clicked
     }
 
-    public void ChangeMaterial()
+    private void OnEnable()
+    {
+        
+    }
+
+    public void ReplaceMaterial()
     {
         var cabinets = GameObject.FindGameObjectsWithTag("Cabinet");    // Finds all cabinets by searching tag name.
 
@@ -38,8 +43,9 @@ public class ChangeWorktop : MonoBehaviour
                             renderer.material = newMaterial;    // Changes the material with the new material specified
                         }
                     }
+                    
                 }
-                else if(isDoor)    // Checks to see if the script should change the doors instead of worktops.
+                else if (isDoor)    // Checks to see if the script should change the doors instead of worktops.
                 {
                     if (component.CompareTag("Doors"))      // Searches for elements with the Doors tag to find the door fronts and plinths.
                     {
@@ -64,14 +70,13 @@ public class ChangeWorktop : MonoBehaviour
                     }
                 }
 
-                
 
-                
+
+
             }
-            
+
 
         }
     }
-
 
 }
