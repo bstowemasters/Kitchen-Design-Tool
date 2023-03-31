@@ -5,12 +5,13 @@ using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HoverObject : MonoBehaviour
+public class CreateObject : MonoBehaviour
 {
 
     public GameObject unitPrefab;
     public Button button;
     private GameObject hologram;
+    public GameObject units;
 
     private Rigidbody rb;
 
@@ -24,6 +25,7 @@ public class HoverObject : MonoBehaviour
        
         hologram = Instantiate(unitPrefab); // Creates a new instance of the gameObject.
         hologram.SetActive(true);           // Sets the prefabs state to active, so the prefab can be seen.
+        hologram.transform.SetParent(units.transform);
 
     }
 
@@ -38,8 +40,8 @@ public class HoverObject : MonoBehaviour
         if (hologram != null)   // Checks if the prefab has been set.
         {
             worldPos.z = Camera.main.nearClipPlane - 3 + mousePos.y / 100;
-            worldPos = new Vector3(Mathf.Round(worldPos.x) / 10, worldPos.z , worldPos.y);
-            worldPos.y = Camera.main.nearClipPlane - 0.25f;     // Shows the prefab slightly above the ground when hovering.
+            worldPos = new Vector3(Mathf.Round(worldPos.x * 10) / 10, worldPos.z, Mathf.Round(worldPos.y * 10) / 10);
+            worldPos.y = Camera.main.nearClipPlane - 0.3f;     // Eliminates the hover effect from the y mouse point
             hologram.transform.position = worldPos; // Hovers the prefab over the current mouse pos.
 
 
