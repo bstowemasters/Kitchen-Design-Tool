@@ -16,11 +16,6 @@ public class ChangeMaterial : MonoBehaviour
         changeMaterialBtn.onClick.AddListener(ReplaceMaterial); // Listen for a button press. Run change worktop function when clicked
     }
 
-    private void OnEnable()
-    {
-        
-    }
-
     public void ReplaceMaterial()
     {
         var cabinets = GameObject.FindGameObjectsWithTag("Cabinet");    // Finds all cabinets by searching tag name.

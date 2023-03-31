@@ -11,7 +11,7 @@ public class CreateObject : MonoBehaviour
     public GameObject unitPrefab;
     public Button button;
     private GameObject hologram;
-    public GameObject units;
+    public GameObject units = GameObject.Find("Cabinets"); // Test to set parent for all prefab under cabinets
 
     private Rigidbody rb;
 
@@ -26,6 +26,7 @@ public class CreateObject : MonoBehaviour
         hologram = Instantiate(unitPrefab); // Creates a new instance of the gameObject.
         hologram.SetActive(true);           // Sets the prefabs state to active, so the prefab can be seen.
         hologram.transform.SetParent(units.transform);
+
 
     }
 
@@ -42,6 +43,12 @@ public class CreateObject : MonoBehaviour
             worldPos.z = Camera.main.nearClipPlane - 3 + mousePos.y / 100;
             worldPos = new Vector3(Mathf.Round(worldPos.x * 10) / 10, worldPos.z, Mathf.Round(worldPos.y * 10) / 10);
             worldPos.y = Camera.main.nearClipPlane - 0.3f;     // Eliminates the hover effect from the y mouse point
+
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                hologram.transform.Rotate(Vector3.forward, 450);
+            }
+            
             hologram.transform.position = worldPos; // Hovers the prefab over the current mouse pos.
 
 
