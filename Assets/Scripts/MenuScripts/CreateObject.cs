@@ -11,12 +11,13 @@ public class CreateObject : MonoBehaviour
     public GameObject unitPrefab;
     public Button button;
     private GameObject hologram;
-    public GameObject units = GameObject.Find("Cabinets"); // Test to set parent for all prefab under cabinets
+    public GameObject units; // Test to set parent for all prefab under cabinets
 
     private Rigidbody rb;
 
     private void Start()
     {
+        units = GameObject.Find("Cabinets");
         button.onClick.AddListener(CreateHologram); // Listen for a button press. Run create hologram when clicked.
     }
 
