@@ -9,35 +9,65 @@ using UnityEngine.EventSystems;
 //[RequireComponent(typeof(Renderer))]
 public class SelectedObjGlow : MonoBehaviour
 {
+    public GameObject selectedObject;
     private Renderer currRend;
+    private Material colour;
+
     private bool isSelected;
-    // private Color origColour;
 
 
-    // Start is called before the first frame update
     void Start()
     {
-        currRend = GetComponent<Renderer>();
-        //origColour = currRend.material.color;
+        if(selectedObject.GetComponent<MeshRenderer>() == null)
+        {
+            selectedObject.AddComponent<MeshRenderer>();
+        }
+
+        currRend = selectedObject.GetComponent<MeshRenderer>();
+
+        colour = currRend.material;
+
+    }
+
+    private void Update()
+    {
+        
     }
 
     private void OnMouseDown()
     {
         if (!EventSystem.current.IsPointerOverGameObject())
         {
-            if (isSelected)
+            if (Input.GetMouseButtonDown(0))
             {
-                //currRend.material.color = origColour; - could be used to change colour instead
-                currRend.material.DisableKeyword("_EMISSION");
-                isSelected = false;
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit))
+                {
+                    if (hit.transform.gameObject == selectedObject)
+                    {
+                        Debug.Log("Prefab clicked!: ");
+                        if (isSelected == false)
+                        {
+                            currRend.material.EnableKeyword("_EMISSION");
+                            colour.color = Color.red;
+                            isSelected = true;
+                        }
+                        else
+                        {
+                            currRend.material.DisableKeyword("_EMISSION");
+                            isSelected = false;
+                        }
+                    }
+                }
             }
-            else
-            {
-                //currRend.material.color = Color.red;
-                currRend.material.EnableKeyword("_EMISSION");
-                isSelected = true;
-            }
+
         }
+
+        // Detect if the game object is clicked
+        
+
 
     }
 
