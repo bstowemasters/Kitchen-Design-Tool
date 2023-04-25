@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,8 @@ public class ChangeMaterial : MonoBehaviour
     public bool isWorktop;    // check which object to change material. (used to reduce replicated code)
     public bool isDoor;
     public bool isHandle;
+    public bool isFloor;
+    public bool isWall;
     new Renderer renderer;        // Creates renderer object to change material.
 
     private void Start()
@@ -19,6 +22,39 @@ public class ChangeMaterial : MonoBehaviour
     public void ReplaceMaterial()
     {
         var cabinets = GameObject.FindGameObjectsWithTag("Cabinet");    // Finds all cabinets by searching tag name.
+        var flooring = GameObject.FindGameObjectsWithTag("Floor");
+        var walls = GameObject.FindGameObjectsWithTag("Wall");
+
+        if (isFloor)
+        {
+            foreach (var floorPart in flooring)
+            {
+                if (floorPart.GetComponent<Renderer>() == null)
+                {
+                    floorPart.AddComponent<Renderer>();
+                }
+                else
+                {
+                    renderer = floorPart.GetComponent<Renderer>();
+                    renderer.material = newMaterial;
+                }
+            }
+        }
+        if (isWall) 
+        {
+            foreach (var wall in walls)
+            {
+                if(wall.GetComponent<Renderer>() == null)
+                {
+                    wall.AddComponent<Renderer>();
+                }
+                else
+                {
+                    renderer = wall.GetComponent<Renderer>();
+                    renderer.material = newMaterial;
+                }
+            }
+        }
 
         foreach (var cabinet in cabinets)
         {
@@ -70,8 +106,9 @@ public class ChangeMaterial : MonoBehaviour
 
             }
 
-
         }
+
+
     }
 
 }
