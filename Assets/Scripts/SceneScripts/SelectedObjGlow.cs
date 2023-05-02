@@ -9,9 +9,11 @@ using UnityEngine.EventSystems;
 //[RequireComponent(typeof(Renderer))]
 public class SelectedObjGlow : MonoBehaviour
 {
+    
     public GameObject selectedObject;
     private Renderer currRend;
     private Material colour;
+    private Material origMaterial;
 
     private bool isSelected;
 
@@ -26,6 +28,8 @@ public class SelectedObjGlow : MonoBehaviour
         currRend = selectedObject.GetComponent<MeshRenderer>();
 
         colour = currRend.material;
+        origMaterial = colour;
+
 
     }
 
@@ -36,39 +40,49 @@ public class SelectedObjGlow : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!EventSystem.current.IsPointerOverGameObject())
+        if (GlobalAccessScripts.allowSelect == false)   // Check if program is doing anything else
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
 
-                if (Physics.Raycast(ray, out hit))
+        }else
+        {
+            if (!EventSystem.current.IsPointerOverGameObject())
+            {
+                if (Input.GetMouseButtonDown(0))
                 {
-                    if (hit.transform.gameObject == selectedObject)
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    RaycastHit hit;
+
+                    if (Physics.Raycast(ray, out hit))
                     {
-                        Debug.Log("Prefab clicked!: ");
-                        if (isSelected == false)
+                        if (hit.transform.gameObject == selectedObject)
                         {
-                            currRend.material.EnableKeyword("_EMISSION");
-                            colour.color = Color.red;
-                            isSelected = true;
-                        }
-                        else
-                        {
-                            currRend.material.DisableKeyword("_EMISSION");
-                            isSelected = false;
+                            Debug.Log("Prefab clicked!: ");
+                            if (isSelected == false)
+                            {
+                                currRend.material.EnableKeyword("_EMISSION");
+                                colour.color = Color.red;
+                                isSelected = true;
+                            }
+                            else
+                            {
+                                colour.color = origMaterial.color;
+
+                                currRend.material.DisableKeyword("_EMISSION");
+                                isSelected = false;
+                            }
                         }
                     }
                 }
-            }
 
+            }
         }
+        
 
         // Detect if the game object is clicked
         
 
 
     }
+    
 
 }

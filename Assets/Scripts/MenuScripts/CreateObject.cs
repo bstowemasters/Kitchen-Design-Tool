@@ -23,7 +23,7 @@ public class CreateObject : MonoBehaviour
 
     private void CreateHologram()
     {
-       
+        GlobalAccessScripts.allowSelect = false;
         hologram = Instantiate(unitPrefab); // Creates a new instance of the gameObject.
         hologram.SetActive(true);           // Sets the prefabs state to active, so the prefab can be seen.
         hologram.transform.SetParent(units.transform);
@@ -52,7 +52,6 @@ public class CreateObject : MonoBehaviour
             
             hologram.transform.position = worldPos; // Hovers the prefab over the current mouse pos.
 
-
         }
 
 
@@ -62,6 +61,7 @@ public class CreateObject : MonoBehaviour
             hologram.transform.position = worldPos;             // Shows the newly placed object at the position it was placed.
   
             hologram = null;                                    // Clears the selected prefab.
+            GlobalAccessScripts.allowSelect = true;             // Clears the blocker that stops mouse presses.
         }
 
     }

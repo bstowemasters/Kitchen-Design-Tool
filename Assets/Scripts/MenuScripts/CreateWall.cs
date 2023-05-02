@@ -109,7 +109,7 @@ public class CreateWall : MonoBehaviour
 
         float distance = Vector3.Distance(wallStartPos.transform.position, wallEndPos.transform.position);
 
-        wall.transform.position = wallStartPos.transform.position + distance / 2 * wallStartPos.transform.forward;  // /2 allows for the scaling to perform from the center of the two walls.
+        wall.transform.position = wallStartPos.transform.position + distance/2 * wallStartPos.transform.forward;  // /2 allows for the scaling to perform from the center of the two walls.
         wall.transform.rotation = wallStartPos.transform.rotation;  // Rotate the middle wall correctly.
         wall.transform.localScale = new Vector3(wall.transform.localScale.x, wall.transform.localScale.y, distance);
 
