@@ -10,6 +10,10 @@ public class WallColour : MonoBehaviour
     public GameObject wall;
     public Color newColour;
 
+    // Objects to reset material
+    public Material newMaterial;
+    new Renderer renderer;
+
     private void Start()
     {
         colourBtn.onClick.AddListener(changeWallColour);
@@ -17,6 +21,25 @@ public class WallColour : MonoBehaviour
 
     private void changeWallColour()
     {
-        wall.GetComponent<Renderer>().material.color = newColour;
+
+        var walls = GameObject.FindGameObjectsWithTag("Wall");
+
+        foreach (var wall in walls)
+        {
+            if (wall.GetComponent<Renderer>() == null)
+            {
+                wall.AddComponent<Renderer>();
+            }
+            else
+            {
+                renderer = wall.GetComponent<Renderer>();
+                renderer.material = newMaterial;
+                wall.GetComponent<Renderer>().material.color = newColour;
+            }
+        }
+
+
+
+        
     }
 }

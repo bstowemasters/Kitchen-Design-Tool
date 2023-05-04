@@ -1589,6 +1589,7 @@ GameObject:
   - component: {fileID: 296524678392064958}
   - component: {fileID: 2324689557970879018}
   - component: {fileID: 8945325643816506790}
+  - component: {fileID: -8592421525353766908}
   m_Layer: 0
   m_Name: Kitchen Cabinets_80CM Highline Cabinet
   m_TagString: Cabinet
@@ -1676,6 +1677,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentPos: {x: 0, y: 0, z: 0}
   objCollision: 0
+--- !u!114 &-8592421525353766908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8565642541103442763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d5f58d96022ea842ba7bd224c6af8a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowMaterial: {fileID: 0}
 --- !u!1 &8566066581743278158
 GameObject:
   m_ObjectHideFlags: 0
