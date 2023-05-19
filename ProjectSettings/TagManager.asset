@@ -12,6 +12,8 @@ TagManager:
   - Cabinet
   - Handle
   - Wall
+  - Wall Appliance
+  - Base Appliance
   layers:
   - Default
   - TransparentFX

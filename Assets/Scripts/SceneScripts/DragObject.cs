@@ -75,7 +75,7 @@ public class DragObject : MonoBehaviour
         //// Get the first contact point of the collision
         ContactPoint contact = collision.contacts[0];
 
-        //// Get the normal vector of the contact point
+        //// Get the normal vector of the collision point
         Vector3 normal = contact.normal;
 
         GameObject collidedObj = collision.gameObject;
@@ -83,7 +83,6 @@ public class DragObject : MonoBehaviour
         {
             float zPos = collidedObj.transform.position.z;
             transform.position = new Vector3(transform.position.x, transform.position.y, zPos);
-            //rb.constraints = RigidbodyConstraints.FreezePositionX;
             if (normal == Vector3.right)
             {
                 // Collision came from left of object
@@ -102,15 +101,6 @@ public class DragObject : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Cabinet"))
         {
-            float getZPos = rb.position.z;
-            if (rb.position.z > getZPos)
-            {
-                rb.constraints = RigidbodyConstraints.FreezePositionZ;
-            }
-            else
-            {
-
-            }
             // onlyFreezeY = true;
         }
 
@@ -159,17 +149,21 @@ public class DragObject : MonoBehaviour
         if (isDrag == true)
         {
 
-
-
             if (!objCollision)
             {
                 newWorldCoords = transform.position;                        // Sets new position.
                 newWorldCoords.x = GetMouseWorldPos().x + mouseOffset.x;    // Sets the new x and y coordinates using mouse input
                 newWorldCoords.z = GetMouseWorldPos().z;
 
-                newWorldCoords = new Vector3(Mathf.Round(newWorldCoords.x * 10) / 10, newWorldCoords.y, Mathf.Round(newWorldCoords.z * 10) / 10);
+                newWorldCoords = new Vector3(Mathf.Round(newWorldCoords.x * 10) / 10, newWorldCoords.y, Mathf.Round(newWorldCoords.z * 10) / 10);   // Sets new coords rounded to every 10 cm
 
-                //newWorldCoords.y = 0.000000001f;                            // Resets y position to floor.
+                if (gameObject.CompareTag("Wall Appliance"))
+                {
+                    newWorldCoords.y = 1.7f;
+                } else if (gameObject.CompareTag("Base Appliance"))
+                {
+                    newWorldCoords.y = 0.33f;
+                }
 
                 transform.position = newWorldCoords;                        // Updates objects position.
             }
