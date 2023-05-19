@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3150,7 +3150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 1
+  m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1280, y: 720}
@@ -7916,6 +7916,7 @@ MonoBehaviour:
   colourBtn: {fileID: 443591217}
   wall: {fileID: 1961129187}
   newColour: {r: 0.9529412, g: 0.5176471, b: 0.05882353, a: 1}
+  newMaterial: {fileID: 0}
 --- !u!1 &444282292
 GameObject:
   m_ObjectHideFlags: 0
@@ -12508,6 +12509,8 @@ MonoBehaviour:
   isWorktop: 0
   isDoor: 1
   isHandle: 0
+  isFloor: 0
+  isWall: 0
 --- !u!114 &677089789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13158,6 +13161,8 @@ MonoBehaviour:
   isWorktop: 0
   isDoor: 1
   isHandle: 0
+  isFloor: 0
+  isWall: 0
 --- !u!114 &713525532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13824,6 +13829,7 @@ MonoBehaviour:
   colourBtn: {fileID: 751151327}
   wall: {fileID: 1961129187}
   newColour: {r: 0, g: 0.74509805, b: 0.16862746, a: 1}
+  newMaterial: {fileID: 0}
 --- !u!114 &751151327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25499,6 +25505,8 @@ MonoBehaviour:
   isWorktop: 1
   isDoor: 0
   isHandle: 0
+  isFloor: 0
+  isWall: 0
 --- !u!114 &1388938302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27767,6 +27775,8 @@ MonoBehaviour:
   isWorktop: 1
   isDoor: 0
   isHandle: 0
+  isFloor: 0
+  isWall: 0
 --- !u!114 &1478572629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36089,6 +36099,8 @@ MonoBehaviour:
   isWorktop: 1
   isDoor: 0
   isHandle: 0
+  isFloor: 0
+  isWall: 0
 --- !u!1 &1881245972
 GameObject:
   m_ObjectHideFlags: 0
@@ -38178,6 +38190,7 @@ MonoBehaviour:
   colourBtn: {fileID: 2042667990}
   wall: {fileID: 1961129187}
   newColour: {r: 0, g: 0.74509805, b: 0.16862746, a: 1}
+  newMaterial: {fileID: 0}
 --- !u!1 &2048457692
 GameObject:
   m_ObjectHideFlags: 0
@@ -39227,6 +39240,7 @@ MonoBehaviour:
   colourBtn: {fileID: 2102243346}
   wall: {fileID: 1961129187}
   newColour: {r: 0.7921569, g: 0.011764706, b: 0.011764706, a: 1}
+  newMaterial: {fileID: 0}
 --- !u!1 &2108419305
 GameObject:
   m_ObjectHideFlags: 0
@@ -39963,6 +39977,7 @@ MonoBehaviour:
   colourBtn: {fileID: 2132360249}
   wall: {fileID: 1961129187}
   newColour: {r: 0.101960786, g: 0.3137255, b: 0.9254902, a: 1}
+  newMaterial: {fileID: 0}
 --- !u!1 &2132911144
 GameObject:
   m_ObjectHideFlags: 0
