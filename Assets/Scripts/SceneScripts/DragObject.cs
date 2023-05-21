@@ -163,6 +163,11 @@ public class DragObject : MonoBehaviour
                 } else if (gameObject.CompareTag("Base Appliance"))
                 {
                     newWorldCoords.y = 0.33f;
+                } else if (gameObject.CompareTag("Fridge"))
+                {
+                    MeshCollider obj = gameObject.GetComponent<MeshCollider>();
+                    float prefabHeight = obj.bounds.size.y - 0.1f;
+                    newWorldCoords.y = prefabHeight / 2;
                 }
 
                 transform.position = newWorldCoords;                        // Updates objects position.

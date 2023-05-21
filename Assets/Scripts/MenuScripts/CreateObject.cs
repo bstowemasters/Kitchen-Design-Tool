@@ -52,6 +52,11 @@ public class CreateObject : MonoBehaviour
             } else if (hologram.CompareTag("Base Appliance"))
             {
                 worldPos.y = 0.33f;
+            } else if (hologram.CompareTag("Fridge"))
+            {
+                MeshCollider obj = gameObject.GetComponent<MeshCollider>();
+                float prefabHeight = obj.bounds.size.y - 0.1f;
+                worldPos.y = prefabHeight / 2;
             }
             else
             {
@@ -71,13 +76,6 @@ public class CreateObject : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && hologram != null)    // Checks if the prefab has been set and the left mouse button is clicked.
         {
-
-            //if (hologram.CompareTag("Wall Appliance"))
-            //{
-            //    worldPos.y = 1.7f;
-            //}
-
-
             hologram.transform.position = worldPos;             // Shows the newly placed object at the position it was placed.
 
   
