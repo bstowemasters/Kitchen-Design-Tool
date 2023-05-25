@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class SelectObject : MonoBehaviour
 {
-    private Renderer[] renderer;
+    private Renderer[] render;
     private Material[] origMaterials;
 
     private bool isSelected;
@@ -13,7 +13,7 @@ public class SelectObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        renderer = GetComponentsInChildren<Renderer>();
+        render = GetComponentsInChildren<Renderer>();
     }
 
     // Update is called once per frame
@@ -35,7 +35,7 @@ public class SelectObject : MonoBehaviour
 
     private void selectObject()
     {
-        foreach (var rend in renderer)
+        foreach (var rend in render)
         {
             rend.material.color = Color.green;
 
@@ -46,7 +46,7 @@ public class SelectObject : MonoBehaviour
 
     private void deselectObject()
     {
-        foreach (var rend in renderer)
+        foreach (var rend in render)
         {
             rend.material.color = Color.white;
         }
