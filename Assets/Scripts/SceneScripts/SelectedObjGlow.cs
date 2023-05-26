@@ -20,12 +20,18 @@ public class SelectedObjGlow : MonoBehaviour
 
     void Start()
     {
-        if(selectedObject.GetComponent<MeshRenderer>() == null)
-        {
-            selectedObject.AddComponent<MeshRenderer>();
-        }
+        selectedObject = gameObject;
 
-        currRend = selectedObject.GetComponent<MeshRenderer>();
+        if (selectedObject.CompareTag("Wall"))
+        {
+            if (selectedObject.GetComponent<MeshRenderer>() == null)
+            {
+                selectedObject.AddComponent<MeshRenderer>();
+            }
+
+            currRend = selectedObject.GetComponent<MeshRenderer>();
+        }
+        
 
         colour = currRend.material;
         origMaterial = colour;
@@ -60,7 +66,7 @@ public class SelectedObjGlow : MonoBehaviour
                             if (isSelected == false)
                             {
                                 currRend.material.EnableKeyword("_EMISSION");
-                                colour.color = Color.red;
+                                //colour.color = Color.red;
                                 isSelected = true;
                             }
                             else
