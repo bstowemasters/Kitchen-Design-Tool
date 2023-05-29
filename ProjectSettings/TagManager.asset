@@ -15,6 +15,7 @@ TagManager:
   - Wall Appliance
   - Base Appliance
   - Fridge
+  - ResumeBtn
   layers:
   - Default
   - TransparentFX
