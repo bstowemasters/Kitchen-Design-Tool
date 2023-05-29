@@ -11,6 +11,8 @@ public class BackgroundLoader : MonoBehaviour
 
     [SerializeField] private Slider progressBar;
 
+
+
     public void loadNewDesignBtn(string scene)
     {
         mainMenuScreen.SetActive(false);
