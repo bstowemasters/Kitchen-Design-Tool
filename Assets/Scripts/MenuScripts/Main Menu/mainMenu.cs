@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.XR;
 
 public class mainMenu : MonoBehaviour
 {
@@ -20,20 +21,17 @@ public class mainMenu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
-    //Test function to enable resume on page load
-
-    //public void enableResume()
-    //{
-    //    Scene scene = SceneManager.GetSceneAt(0);
-    //    GameObject[] sceneObjects = scene.GetRootGameObjects();
-    //    foreach (GameObject obj in sceneObjects)
-    //    {
-    //        if (obj.CompareTag("resumeBtn")) 
-    //        {
-    //            obj.SetActive(true);
-    //        }
-    //    }
-    //}
+    public void loadVRView()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        StartCoroutine(SwitchToVR());
+    }
+    IEnumerator SwitchToVR()
+    {
+        XRSettings.LoadDeviceByName("WindowsMR");
+        yield return null;
+        XRSettings.enabled = true;
+    }
 
     public void QuitApp()
     {
