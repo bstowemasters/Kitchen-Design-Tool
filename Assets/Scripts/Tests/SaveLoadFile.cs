@@ -7,7 +7,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
-using SimpleJSON;
+using BensSimpleJSON;
+using UnityEditor;
+using JetBrains.Annotations;
 
 public class SaveLoadFile : MonoBehaviour
 {
@@ -16,8 +18,6 @@ public class SaveLoadFile : MonoBehaviour
 
     public int cabinetFileCount;
     public List<GameObject> savedComponents = new List<GameObject>();
-
-
 
     [System.Serializable]
     public class saveData
@@ -60,6 +60,11 @@ public class SaveLoadFile : MonoBehaviour
             cabinetName = cabinetName.Replace("(Clone)", "");
             cabinetName = cabinetName.Replace(" (" + idx + ")", "");
 
+            // Get the source prefab of the gameObject instance (to get path of prefab)
+
+            GameObject prefab = (GameObject)PrefabUtility.GetPrefabInstanceHandle(cabinet);
+            string prefabPath = AssetDatabase.GetAssetPath(prefab);
+
             saveData cabinetData = new saveData();
             cabinetData.componentName = cabinetName;
             cabinetData.SaveIdx = idx;
@@ -93,26 +98,42 @@ public class SaveLoadFile : MonoBehaviour
     void loadFileDesign()
     {
         string saveDataName = Application.dataPath + "/SaveData/" + "SaveData" + ".json";
+        deletePreviousCabinets();
 
         if (File.Exists(saveDataName))
         {
             Debug.Log("Found save file");
+            
+            GameObject parentObj = GameObject.Find("Cabinets");
+
 
             // Read in the JSON array data from file and convert into readable format.
 
             string jsonData = File.ReadAllText(saveDataName);   // Gets file data and stores as string
 
-            var cabinetData = JSONArray.Parse(jsonData);        // Parses data as JSON array
+            //var cabinetData = JSONArray.Parse(jsonData);        // Parses data as JSON array
+            var cabinetData = SimpleJSON.Parse(jsonData).AsArray;
+            int cabinetCount = cabinetData.Count;                 // Stores total cabinets to be loaded in
+            Debug.Log("Total = " + cabinetCount);
 
             foreach (var component in cabinetData)              // Iterates through each element in JSON array and gets cabinet data
             {
-                var jsonNode = component.Value as JSONNode;
+                var jsonNode = component.Value as SimpleJSONNode;
 
-                Debug.Log(jsonNode["componentName"]);
-                Debug.Log(jsonNode["SaveIdx"]);
-
+                string cabinetName = jsonNode["componentName"];
+                int cabinetIdx = jsonNode["SaveIdx"];
                 Vector3 cabinetPosition = jsonNode["componentPosition"];
-                Debug.Log("The cabinets position: " + cabinetPosition);
+
+                Debug.Log("This is the cabinet name: " + cabinetName + ".prefab");
+
+
+                GameObject cabinetToAdd = Resources.Load<GameObject>(cabinetName);
+                GameObject addedCabinet = Instantiate(cabinetToAdd);
+
+                addedCabinet.transform.parent = parentObj.transform;
+
+                addedCabinet.transform.position = cabinetPosition;
+                
             }
         }
         else
@@ -120,6 +141,47 @@ public class SaveLoadFile : MonoBehaviour
             Debug.Log("Error, Save File Not Found");
         }
     }
+
+    private void deletePreviousCabinets()
+    {
+        GameObject oldDesign = GameObject.Find("Cabinets");
+
+
+        for (int i = 0; i < oldDesign.transform.childCount; i++)
+        {
+            GameObject child = oldDesign.transform.GetChild(i).gameObject;
+            if (child != null)
+            {
+                GameObject.Destroy(child);
+            }
+        }
+
+    }
+
+    //public void LoadFileDesign()
+    //{
+    //    if (savedCabinets == null)
+    //    {
+    //        Debug.Log("No Save File Found");
+    //    }
+    //    else
+    //    {
+    //        deletePreviousFile();
+    //        GameObject parentObj = GameObject.Find("Cabinets");
+
+    //        int cabinetCount = savedCabinets.Count;
+    //        for (int i = 0; i < cabinetCount; i++)
+    //        {
+    //            PlayerPrefs.GetFloat("rotY" + i);
+    //            GameObject cabinet = Instantiate(savedCabinets[i]);
+
+    //            cabinet.transform.position = new Vector3(PlayerPrefs.GetFloat("posX" + i), PlayerPrefs.GetFloat("posY" + i), PlayerPrefs.GetFloat("posZ" + i));
+    //            cabinet.transform.parent = parentObj.transform;
+    //            MonoBehaviour dragScript = cabinet.GetComponent<DragObject>();
+    //            dragScript.enabled = true;
+    //        }
+    //    }
+    //}
 
     /*
     private void SaveFileDesign()

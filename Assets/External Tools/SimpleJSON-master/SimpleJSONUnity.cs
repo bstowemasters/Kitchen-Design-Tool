@@ -43,101 +43,101 @@ using UnityEngine;
 
 namespace BensSimpleJSON
 {
-    public enum JSONContainerType { Array, Object }
-	public partial class JSONNode
+    public enum SimpleJSONContainerType { Array, Object }
+	public partial class SimpleJSONNode
 	{
         public static byte Color32DefaultAlpha = 255;
         public static float ColorDefaultAlpha = 1f;
-        public static JSONContainerType VectorContainerType = JSONContainerType.Array;
-        public static JSONContainerType QuaternionContainerType = JSONContainerType.Array;
-        public static JSONContainerType RectContainerType = JSONContainerType.Array;
-        public static JSONContainerType ColorContainerType = JSONContainerType.Array;
-        private static JSONNode GetContainer(JSONContainerType aType)
+        public static SimpleJSONContainerType VectorContainerType = SimpleJSONContainerType.Array;
+        public static SimpleJSONContainerType QuaternionContainerType = SimpleJSONContainerType.Array;
+        public static SimpleJSONContainerType RectContainerType = SimpleJSONContainerType.Array;
+        public static SimpleJSONContainerType ColorContainerType = SimpleJSONContainerType.Array;
+        private static SimpleJSONNode GetContainer(SimpleJSONContainerType aType)
         {
-            if (aType == JSONContainerType.Array)
-                return new JSONArray();
-            return new JSONObject();
+            if (aType == SimpleJSONContainerType.Array)
+                return new SimpleJSONArray();
+            return new SimpleJSONObject();
         }
 
         #region implicit conversion operators
-        public static implicit operator JSONNode(Vector2 aVec)
+        public static implicit operator SimpleJSONNode(Vector2 aVec)
 		{
-            JSONNode n = GetContainer(VectorContainerType);
+            SimpleJSONNode n = GetContainer(VectorContainerType);
             n.WriteVector2(aVec);
 			return n;
 		}
-		public static implicit operator JSONNode(Vector3 aVec)
+		public static implicit operator SimpleJSONNode(Vector3 aVec)
 		{
-            JSONNode n = GetContainer(VectorContainerType);
+            SimpleJSONNode n = GetContainer(VectorContainerType);
             n.WriteVector3(aVec);
             return n;
         }
-        public static implicit operator JSONNode(Vector4 aVec)
+        public static implicit operator SimpleJSONNode(Vector4 aVec)
 		{
-            JSONNode n = GetContainer(VectorContainerType);
+            SimpleJSONNode n = GetContainer(VectorContainerType);
             n.WriteVector4(aVec);
             return n;
         }
-        public static implicit operator JSONNode(Color aCol)
+        public static implicit operator SimpleJSONNode(Color aCol)
         {
-            JSONNode n = GetContainer(ColorContainerType);
+            SimpleJSONNode n = GetContainer(ColorContainerType);
             n.WriteColor(aCol);
             return n;
         }
-        public static implicit operator JSONNode(Color32 aCol)
+        public static implicit operator SimpleJSONNode(Color32 aCol)
         {
-            JSONNode n = GetContainer(ColorContainerType);
+            SimpleJSONNode n = GetContainer(ColorContainerType);
             n.WriteColor32(aCol);
             return n;
         }
-        public static implicit operator JSONNode(Quaternion aRot)
+        public static implicit operator SimpleJSONNode(Quaternion aRot)
 		{
-            JSONNode n = GetContainer(QuaternionContainerType);
+            SimpleJSONNode n = GetContainer(QuaternionContainerType);
             n.WriteQuaternion(aRot);
             return n;
         }
-        public static implicit operator JSONNode(Rect aRect)
+        public static implicit operator SimpleJSONNode(Rect aRect)
 		{
-            JSONNode n = GetContainer(RectContainerType);
+            SimpleJSONNode n = GetContainer(RectContainerType);
             n.WriteRect(aRect);
             return n;
         }
-        public static implicit operator JSONNode(RectOffset aRect)
+        public static implicit operator SimpleJSONNode(RectOffset aRect)
 		{
-            JSONNode n = GetContainer(RectContainerType);
+            SimpleJSONNode n = GetContainer(RectContainerType);
             n.WriteRectOffset(aRect);
             return n;
         }
 
-        public static implicit operator Vector2(JSONNode aNode)
+        public static implicit operator Vector2(SimpleJSONNode aNode)
         {
             return aNode.ReadVector2();
         }
-        public static implicit operator Vector3(JSONNode aNode)
+        public static implicit operator Vector3(SimpleJSONNode aNode)
         {
             return aNode.ReadVector3();
         }
-        public static implicit operator Vector4(JSONNode aNode)
+        public static implicit operator Vector4(SimpleJSONNode aNode)
         {
             return aNode.ReadVector4();
         }
-        public static implicit operator Color(JSONNode aNode)
+        public static implicit operator Color(SimpleJSONNode aNode)
         {
             return aNode.ReadColor();
         }
-        public static implicit operator Color32(JSONNode aNode)
+        public static implicit operator Color32(SimpleJSONNode aNode)
         {
             return aNode.ReadColor32();
         }
-        public static implicit operator Quaternion(JSONNode aNode)
+        public static implicit operator Quaternion(SimpleJSONNode aNode)
         {
             return aNode.ReadQuaternion();
         }
-        public static implicit operator Rect(JSONNode aNode)
+        public static implicit operator Rect(SimpleJSONNode aNode)
         {
             return aNode.ReadRect();
         }
-        public static implicit operator RectOffset(JSONNode aNode)
+        public static implicit operator RectOffset(SimpleJSONNode aNode)
         {
             return aNode.ReadRectOffset();
         }
@@ -165,7 +165,7 @@ namespace BensSimpleJSON
         {
             return ReadVector2(Vector2.zero);
         }
-        public JSONNode WriteVector2(Vector2 aVec, string aXName = "x", string aYName = "y")
+        public SimpleJSONNode WriteVector2(Vector2 aVec, string aXName = "x", string aYName = "y")
         {
             if (IsObject)
             {
@@ -202,7 +202,7 @@ namespace BensSimpleJSON
         {
             return ReadVector3(Vector3.zero);
         }
-        public JSONNode WriteVector3(Vector3 aVec, string aXName = "x", string aYName = "y", string aZName = "z")
+        public SimpleJSONNode WriteVector3(Vector3 aVec, string aXName = "x", string aYName = "y", string aZName = "z")
         {
             if (IsObject)
             {
@@ -235,7 +235,7 @@ namespace BensSimpleJSON
         {
             return ReadVector4(Vector4.zero);
         }
-        public JSONNode WriteVector4(Vector4 aVec)
+        public SimpleJSONNode WriteVector4(Vector4 aVec)
         {
             if (IsObject)
             {
@@ -270,7 +270,7 @@ namespace BensSimpleJSON
         {
             return ReadColor(Color.clear);
         }
-        public JSONNode WriteColor(Color aCol)
+        public SimpleJSONNode WriteColor(Color aCol)
         {
             if (IsObject)
             {
@@ -303,7 +303,7 @@ namespace BensSimpleJSON
         {
             return ReadColor32(new Color32());
         }
-        public JSONNode WriteColor32(Color32 aCol)
+        public SimpleJSONNode WriteColor32(Color32 aCol)
         {
             if (IsObject)
             {
@@ -339,7 +339,7 @@ namespace BensSimpleJSON
         {
             return ReadQuaternion(Quaternion.identity);
         }
-        public JSONNode WriteQuaternion(Quaternion aRot)
+        public SimpleJSONNode WriteQuaternion(Quaternion aRot)
         {
             if (IsObject)
             {
@@ -374,7 +374,7 @@ namespace BensSimpleJSON
         {
             return ReadRect(new Rect());
         }
-        public JSONNode WriteRect(Rect aRect)
+        public SimpleJSONNode WriteRect(Rect aRect)
         {
             if (IsObject)
             {
@@ -399,9 +399,9 @@ namespace BensSimpleJSON
         #region RectOffset
         public RectOffset ReadRectOffset(RectOffset aDefault)
         {
-            if (this is JSONObject)
+            if (this is SimpleJSONObject)
                 return new RectOffset(this["left"].AsInt, this["right"].AsInt, this["top"].AsInt, this["bottom"].AsInt);
-            if (this is JSONArray)
+            if (this is SimpleJSONArray)
                 return new RectOffset(this[0].AsInt, this[1].AsInt, this[2].AsInt, this[3].AsInt);
             return aDefault;
         }
@@ -409,7 +409,7 @@ namespace BensSimpleJSON
         {
             return ReadRectOffset(new RectOffset());
         }
-        public JSONNode WriteRectOffset(RectOffset aRect)
+        public SimpleJSONNode WriteRectOffset(RectOffset aRect)
         {
             if (IsObject)
             {
@@ -444,7 +444,7 @@ namespace BensSimpleJSON
             }
             return result;
         }
-        public JSONNode WriteMatrix(Matrix4x4 aMatrix)
+        public SimpleJSONNode WriteMatrix(Matrix4x4 aMatrix)
         {
             if (IsArray)
             {

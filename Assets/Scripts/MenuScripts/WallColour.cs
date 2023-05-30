@@ -12,7 +12,7 @@ public class WallColour : MonoBehaviour
 
     // Objects to reset material
     public Material newMaterial;
-    new Renderer renderer;
+    public  new Renderer renderer;
 
     private void Start()
     {

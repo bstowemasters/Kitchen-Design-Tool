@@ -42,7 +42,7 @@ namespace BensSimpleJSON
 {
     using System.Globalization;
     using System.Collections.Generic;
-    public partial class JSONNode
+    public partial class SimpleJSONNode
     {
         #region Decimal
         public virtual decimal AsDecimal
@@ -60,12 +60,12 @@ namespace BensSimpleJSON
             }
         }
 
-        public static implicit operator JSONNode(decimal aDecimal)
+        public static implicit operator SimpleJSONNode(decimal aDecimal)
         {
-            return new JSONString(aDecimal.ToString());
+            return new SimpleJSONString(aDecimal.ToString());
         }
 
-        public static implicit operator decimal(JSONNode aNode)
+        public static implicit operator decimal(SimpleJSONNode aNode)
         {
             return aNode.AsDecimal;
         }
@@ -91,12 +91,12 @@ namespace BensSimpleJSON
             }
         }
 
-        public static implicit operator JSONNode(char aChar)
+        public static implicit operator SimpleJSONNode(char aChar)
         {
-            return new JSONString(aChar.ToString());
+            return new SimpleJSONString(aChar.ToString());
         }
 
-        public static implicit operator char(JSONNode aNode)
+        public static implicit operator char(SimpleJSONNode aNode)
         {
             return aNode.AsChar;
         }
@@ -115,12 +115,12 @@ namespace BensSimpleJSON
             }
         }
 
-        public static implicit operator JSONNode(uint aUInt)
+        public static implicit operator SimpleJSONNode(uint aUInt)
         {
-            return new JSONNumber(aUInt);
+            return new SimpleJSONNumber(aUInt);
         }
 
-        public static implicit operator uint(JSONNode aNode)
+        public static implicit operator uint(SimpleJSONNode aNode)
         {
             return aNode.AsUInt;
         }
@@ -139,12 +139,12 @@ namespace BensSimpleJSON
             }
         }
 
-        public static implicit operator JSONNode(byte aByte)
+        public static implicit operator SimpleJSONNode(byte aByte)
         {
-            return new JSONNumber(aByte);
+            return new SimpleJSONNumber(aByte);
         }
 
-        public static implicit operator byte(JSONNode aNode)
+        public static implicit operator byte(SimpleJSONNode aNode)
         {
             return aNode.AsByte;
         }
@@ -162,12 +162,12 @@ namespace BensSimpleJSON
             }
         }
 
-        public static implicit operator JSONNode(sbyte aSByte)
+        public static implicit operator SimpleJSONNode(sbyte aSByte)
         {
-            return new JSONNumber(aSByte);
+            return new SimpleJSONNumber(aSByte);
         }
 
-        public static implicit operator sbyte(JSONNode aNode)
+        public static implicit operator sbyte(SimpleJSONNode aNode)
         {
             return aNode.AsSByte;
         }
@@ -186,12 +186,12 @@ namespace BensSimpleJSON
             }
         }
 
-        public static implicit operator JSONNode(short aShort)
+        public static implicit operator SimpleJSONNode(short aShort)
         {
-            return new JSONNumber(aShort);
+            return new SimpleJSONNumber(aShort);
         }
 
-        public static implicit operator short(JSONNode aNode)
+        public static implicit operator short(SimpleJSONNode aNode)
         {
             return aNode.AsShort;
         }
@@ -209,12 +209,12 @@ namespace BensSimpleJSON
             }
         }
 
-        public static implicit operator JSONNode(ushort aUShort)
+        public static implicit operator SimpleJSONNode(ushort aUShort)
         {
-            return new JSONNumber(aUShort);
+            return new SimpleJSONNumber(aUShort);
         }
 
-        public static implicit operator ushort(JSONNode aNode)
+        public static implicit operator ushort(SimpleJSONNode aNode)
         {
             return aNode.AsUShort;
         }
@@ -236,12 +236,12 @@ namespace BensSimpleJSON
             }
         }
 
-        public static implicit operator JSONNode(System.DateTime aDateTime)
+        public static implicit operator SimpleJSONNode(System.DateTime aDateTime)
         {
-            return new JSONString(aDateTime.ToString(CultureInfo.InvariantCulture));
+            return new SimpleJSONString(aDateTime.ToString(CultureInfo.InvariantCulture));
         }
 
-        public static implicit operator System.DateTime(JSONNode aNode)
+        public static implicit operator System.DateTime(SimpleJSONNode aNode)
         {
             return aNode.AsDateTime;
         }
@@ -262,12 +262,12 @@ namespace BensSimpleJSON
             }
         }
 
-        public static implicit operator JSONNode(System.TimeSpan aTimeSpan)
+        public static implicit operator SimpleJSONNode(System.TimeSpan aTimeSpan)
         {
-            return new JSONString(aTimeSpan.ToString());
+            return new SimpleJSONString(aTimeSpan.ToString());
         }
 
-        public static implicit operator System.TimeSpan(JSONNode aNode)
+        public static implicit operator System.TimeSpan(SimpleJSONNode aNode)
         {
             return aNode.AsTimeSpan;
         }
@@ -288,12 +288,12 @@ namespace BensSimpleJSON
             }
         }
 
-        public static implicit operator JSONNode(System.Guid aGuid)
+        public static implicit operator SimpleJSONNode(System.Guid aGuid)
         {
-            return new JSONString(aGuid.ToString());
+            return new SimpleJSONString(aGuid.ToString());
         }
 
-        public static implicit operator System.Guid(JSONNode aNode)
+        public static implicit operator System.Guid(SimpleJSONNode aNode)
         {
             return aNode.AsGuid;
         }
@@ -322,12 +322,12 @@ namespace BensSimpleJSON
             }
         }
 
-        public static implicit operator JSONNode(byte[] aByteArray)
+        public static implicit operator SimpleJSONNode(byte[] aByteArray)
         {
-            return new JSONArray { AsByteArray = aByteArray };
+            return new SimpleJSONArray { AsByteArray = aByteArray };
         }
 
-        public static implicit operator byte[](JSONNode aNode)
+        public static implicit operator byte[](SimpleJSONNode aNode)
         {
             return aNode.AsByteArray;
         }
@@ -355,12 +355,12 @@ namespace BensSimpleJSON
             }
         }
 
-        public static implicit operator JSONNode(List<byte> aByteList)
+        public static implicit operator SimpleJSONNode(List<byte> aByteList)
         {
-            return new JSONArray { AsByteList = aByteList };
+            return new SimpleJSONArray { AsByteList = aByteList };
         }
 
-        public static implicit operator List<byte> (JSONNode aNode)
+        public static implicit operator List<byte> (SimpleJSONNode aNode)
         {
             return aNode.AsByteList;
         }
@@ -389,12 +389,12 @@ namespace BensSimpleJSON
             }
         }
 
-        public static implicit operator JSONNode(string[] aStringArray)
+        public static implicit operator SimpleJSONNode(string[] aStringArray)
         {
-            return new JSONArray { AsStringArray = aStringArray };
+            return new SimpleJSONArray { AsStringArray = aStringArray };
         }
 
-        public static implicit operator string[] (JSONNode aNode)
+        public static implicit operator string[] (SimpleJSONNode aNode)
         {
             return aNode.AsStringArray;
         }
@@ -422,90 +422,90 @@ namespace BensSimpleJSON
             }
         }
 
-        public static implicit operator JSONNode(List<string> aStringList)
+        public static implicit operator SimpleJSONNode(List<string> aStringList)
         {
-            return new JSONArray { AsStringList = aStringList };
+            return new SimpleJSONArray { AsStringList = aStringList };
         }
 
-        public static implicit operator List<string> (JSONNode aNode)
+        public static implicit operator List<string> (SimpleJSONNode aNode)
         {
             return aNode.AsStringList;
         }
         #endregion StringList
 
         #region NullableTypes
-        public static implicit operator JSONNode(int? aValue)
+        public static implicit operator SimpleJSONNode(int? aValue)
         {
             if (aValue == null)
-                return JSONNull.CreateOrGet();
-            return new JSONNumber((int)aValue);
+                return SimpleJSONNull.CreateOrGet();
+            return new SimpleJSONNumber((int)aValue);
         }
-        public static implicit operator int?(JSONNode aNode)
+        public static implicit operator int?(SimpleJSONNode aNode)
         {
             if (aNode == null || aNode.IsNull)
                 return null;
             return aNode.AsInt;
         }
 
-        public static implicit operator JSONNode(float? aValue)
+        public static implicit operator SimpleJSONNode(float? aValue)
         {
             if (aValue == null)
-                return JSONNull.CreateOrGet();
-            return new JSONNumber((float)aValue);
+                return SimpleJSONNull.CreateOrGet();
+            return new SimpleJSONNumber((float)aValue);
         }
-        public static implicit operator float? (JSONNode aNode)
+        public static implicit operator float? (SimpleJSONNode aNode)
         {
             if (aNode == null || aNode.IsNull)
                 return null;
             return aNode.AsFloat;
         }
 
-        public static implicit operator JSONNode(double? aValue)
+        public static implicit operator SimpleJSONNode(double? aValue)
         {
             if (aValue == null)
-                return JSONNull.CreateOrGet();
-            return new JSONNumber((double)aValue);
+                return SimpleJSONNull.CreateOrGet();
+            return new SimpleJSONNumber((double)aValue);
         }
-        public static implicit operator double? (JSONNode aNode)
+        public static implicit operator double? (SimpleJSONNode aNode)
         {
             if (aNode == null || aNode.IsNull)
                 return null;
             return aNode.AsDouble;
         }
 
-        public static implicit operator JSONNode(bool? aValue)
+        public static implicit operator SimpleJSONNode(bool? aValue)
         {
             if (aValue == null)
-                return JSONNull.CreateOrGet();
-            return new JSONBool((bool)aValue);
+                return SimpleJSONNull.CreateOrGet();
+            return new SimpleJSONBool((bool)aValue);
         }
-        public static implicit operator bool? (JSONNode aNode)
+        public static implicit operator bool? (SimpleJSONNode aNode)
         {
             if (aNode == null || aNode.IsNull)
                 return null;
             return aNode.AsBool;
         }
 
-        public static implicit operator JSONNode(long? aValue)
+        public static implicit operator SimpleJSONNode(long? aValue)
         {
             if (aValue == null)
-                return JSONNull.CreateOrGet();
-            return new JSONNumber((long)aValue);
+                return SimpleJSONNull.CreateOrGet();
+            return new SimpleJSONNumber((long)aValue);
         }
-        public static implicit operator long? (JSONNode aNode)
+        public static implicit operator long? (SimpleJSONNode aNode)
         {
             if (aNode == null || aNode.IsNull)
                 return null;
             return aNode.AsLong;
         }
 
-        public static implicit operator JSONNode(short? aValue)
+        public static implicit operator SimpleJSONNode(short? aValue)
         {
             if (aValue == null)
-                return JSONNull.CreateOrGet();
-            return new JSONNumber((short)aValue);
+                return SimpleJSONNull.CreateOrGet();
+            return new SimpleJSONNumber((short)aValue);
         }
-        public static implicit operator short? (JSONNode aNode)
+        public static implicit operator short? (SimpleJSONNode aNode)
         {
             if (aNode == null || aNode.IsNull)
                 return null;

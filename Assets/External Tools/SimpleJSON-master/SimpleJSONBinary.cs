@@ -44,7 +44,7 @@ using System;
 namespace BensSimpleJSON
 {
 #if !SimpleJSON_ExcludeBinary
-    public abstract partial class JSONNode
+    public abstract partial class SimpleJSONNode
     {
         public abstract void SerializeBinary(System.IO.BinaryWriter aWriter);
 
@@ -120,23 +120,23 @@ namespace BensSimpleJSON
             }
         }
 
-        public static JSONNode DeserializeBinary(System.IO.BinaryReader aReader)
+        public static SimpleJSONNode DeserializeBinary(System.IO.BinaryReader aReader)
         {
-            JSONNodeType type = (JSONNodeType)aReader.ReadByte();
+            SimpleJSONNodeType type = (SimpleJSONNodeType)aReader.ReadByte();
             switch (type)
             {
-                case JSONNodeType.Array:
+                case SimpleJSONNodeType.Array:
                     {
                         int count = aReader.ReadInt32();
-                        JSONArray tmp = new JSONArray();
+                        SimpleJSONArray tmp = new SimpleJSONArray();
                         for (int i = 0; i < count; i++)
                             tmp.Add(DeserializeBinary(aReader));
                         return tmp;
                     }
-                case JSONNodeType.Object:
+                case SimpleJSONNodeType.Object:
                     {
                         int count = aReader.ReadInt32();
-                        JSONObject tmp = new JSONObject();
+                        SimpleJSONObject tmp = new SimpleJSONObject();
                         for (int i = 0; i < count; i++)
                         {
                             string key = aReader.ReadString();
@@ -145,21 +145,21 @@ namespace BensSimpleJSON
                         }
                         return tmp;
                     }
-                case JSONNodeType.String:
+                case SimpleJSONNodeType.String:
                     {
-                        return new JSONString(aReader.ReadString());
+                        return new SimpleJSONString(aReader.ReadString());
                     }
-                case JSONNodeType.Number:
+                case SimpleJSONNodeType.Number:
                     {
-                        return new JSONNumber(aReader.ReadDouble());
+                        return new SimpleJSONNumber(aReader.ReadDouble());
                     }
-                case JSONNodeType.Boolean:
+                case SimpleJSONNodeType.Boolean:
                     {
-                        return new JSONBool(aReader.ReadBoolean());
+                        return new SimpleJSONBool(aReader.ReadBoolean());
                     }
-                case JSONNodeType.NullValue:
+                case SimpleJSONNodeType.NullValue:
                     {
-                        return JSONNull.CreateOrGet();
+                        return SimpleJSONNull.CreateOrGet();
                     }
                 default:
                     {
@@ -189,23 +189,23 @@ namespace BensSimpleJSON
 			return LoadFromCompressedStream(stream);
 		}
 #else
-        public static JSONNode LoadFromCompressedFile(string aFileName)
+        public static SimpleJSONNode LoadFromCompressedFile(string aFileName)
         {
             throw new Exception("Can't use compressed functions. You need include the SharpZipLib and uncomment the define at the top of SimpleJSON");
         }
 
-        public static JSONNode LoadFromCompressedStream(System.IO.Stream aData)
+        public static SimpleJSONNode LoadFromCompressedStream(System.IO.Stream aData)
         {
             throw new Exception("Can't use compressed functions. You need include the SharpZipLib and uncomment the define at the top of SimpleJSON");
         }
 
-        public static JSONNode LoadFromCompressedBase64(string aBase64)
+        public static SimpleJSONNode LoadFromCompressedBase64(string aBase64)
         {
             throw new Exception("Can't use compressed functions. You need include the SharpZipLib and uncomment the define at the top of SimpleJSON");
         }
 #endif
 
-        public static JSONNode LoadFromBinaryStream(System.IO.Stream aData)
+        public static SimpleJSONNode LoadFromBinaryStream(System.IO.Stream aData)
         {
             using (var R = new System.IO.BinaryReader(aData))
             {
@@ -213,7 +213,7 @@ namespace BensSimpleJSON
             }
         }
 
-        public static JSONNode LoadFromBinaryFile(string aFileName)
+        public static SimpleJSONNode LoadFromBinaryFile(string aFileName)
         {
             using (var F = System.IO.File.OpenRead(aFileName))
             {
@@ -221,7 +221,7 @@ namespace BensSimpleJSON
             }
         }
 
-        public static JSONNode LoadFromBinaryBase64(string aBase64)
+        public static SimpleJSONNode LoadFromBinaryBase64(string aBase64)
         {
             var tmp = System.Convert.FromBase64String(aBase64);
             var stream = new System.IO.MemoryStream(tmp);
@@ -230,11 +230,11 @@ namespace BensSimpleJSON
         }
     }
 
-    public partial class JSONArray : JSONNode
+    public partial class SimpleJSONArray : SimpleJSONNode
     {
         public override void SerializeBinary(System.IO.BinaryWriter aWriter)
         {
-            aWriter.Write((byte)JSONNodeType.Array);
+            aWriter.Write((byte)SimpleJSONNodeType.Array);
             aWriter.Write(m_List.Count);
             for (int i = 0; i < m_List.Count; i++)
             {
@@ -243,11 +243,11 @@ namespace BensSimpleJSON
         }
     }
 
-    public partial class JSONObject : JSONNode
+    public partial class SimpleJSONObject : SimpleJSONNode
     {
         public override void SerializeBinary(System.IO.BinaryWriter aWriter)
         {
-            aWriter.Write((byte)JSONNodeType.Object);
+            aWriter.Write((byte)SimpleJSONNodeType.Object);
             aWriter.Write(m_Dict.Count);
             foreach (string K in m_Dict.Keys)
             {
@@ -257,40 +257,40 @@ namespace BensSimpleJSON
         }
     }
 
-    public partial class JSONString : JSONNode
+    public partial class SimpleJSONString : SimpleJSONNode
     {
         public override void SerializeBinary(System.IO.BinaryWriter aWriter)
         {
-            aWriter.Write((byte)JSONNodeType.String);
+            aWriter.Write((byte)SimpleJSONNodeType.String);
             aWriter.Write(m_Data);
         }
     }
 
-    public partial class JSONNumber : JSONNode
+    public partial class SimpleJSONNumber : SimpleJSONNode
     {
         public override void SerializeBinary(System.IO.BinaryWriter aWriter)
         {
-            aWriter.Write((byte)JSONNodeType.Number);
+            aWriter.Write((byte)SimpleJSONNodeType.Number);
             aWriter.Write(m_Data);
         }
     }
 
-    public partial class JSONBool : JSONNode
+    public partial class SimpleJSONBool : SimpleJSONNode
     {
         public override void SerializeBinary(System.IO.BinaryWriter aWriter)
         {
-            aWriter.Write((byte)JSONNodeType.Boolean);
+            aWriter.Write((byte)SimpleJSONNodeType.Boolean);
             aWriter.Write(m_Data);
         }
     }
-    public partial class JSONNull : JSONNode
+    public partial class SimpleJSONNull : SimpleJSONNode
     {
         public override void SerializeBinary(System.IO.BinaryWriter aWriter)
         {
-            aWriter.Write((byte)JSONNodeType.NullValue);
+            aWriter.Write((byte)SimpleJSONNodeType.NullValue);
         }
     }
-    internal partial class JSONLazyCreator : JSONNode
+    internal partial class JSONLazyCreator : SimpleJSONNode
     {
         public override void SerializeBinary(System.IO.BinaryWriter aWriter)
         {

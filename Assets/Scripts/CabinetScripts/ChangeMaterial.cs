@@ -12,7 +12,7 @@ public class ChangeMaterial : MonoBehaviour
     public bool isHandle;
     public bool isFloor;
     public bool isWall;
-    new Renderer renderer;        // Creates renderer object to change material.
+    public new Renderer renderer;        // Creates renderer object to change material.
 
     private void Start()
     {
