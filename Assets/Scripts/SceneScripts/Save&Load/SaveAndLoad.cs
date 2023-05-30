@@ -44,12 +44,9 @@ public class SaveAndLoad : MonoBehaviour
                 float posY = cabinet.transform.position.y;
                 float posZ = cabinet.transform.position.z;
 
-                //float rotY = cabinet.transform.rotation.eulerAngles.y;
-
                 PlayerPrefs.SetFloat("posX" + index, posX);
                 PlayerPrefs.SetFloat("posY" + index, posY);
                 PlayerPrefs.SetFloat("posZ" + index, posZ);
-                //PlayerPrefs.SetFloat("rotationY" + index, rotY);
 
                 index++;
             }
@@ -58,7 +55,7 @@ public class SaveAndLoad : MonoBehaviour
 
     }
     
-    private void LoadDesign()
+    public void LoadDesign()
     {
         if(savedCabinets == null)
         {
@@ -78,14 +75,8 @@ public class SaveAndLoad : MonoBehaviour
                 cabinet.transform.parent = parentObj.transform;
                 MonoBehaviour dragScript = cabinet.GetComponent<DragObject>();
                 dragScript.enabled = true;
-                //cabinet.transform.rotation.eulerAngles = new Vector3(PlayerPrefs.GetFloat("rotX" + i), PlayerPrefs.GetFloat("rotY" + i), PlayerPrefs.GetFloat("rotZ" + i));
             }
         }
-
-        //savedCabinets = null;
-
-
-
     }
 
     private void deletePrevious()
@@ -98,15 +89,6 @@ public class SaveAndLoad : MonoBehaviour
             GameObject child = oldDesign.transform.GetChild(i).gameObject;
             GameObject.Destroy(child);
         }
-
-        /*
-        var designComponents = oldDesign.GetComponentsInChildren<Transform>();
-        
-        foreach(var component in designComponents)
-        {
-            GameObject.Destroy(component.gameObject);
-        }
-        */
         
     }
 
