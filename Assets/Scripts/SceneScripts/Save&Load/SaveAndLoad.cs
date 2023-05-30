@@ -87,7 +87,10 @@ public class SaveAndLoad : MonoBehaviour
         for(int i = 0; i < oldDesign.transform.childCount; i++)
         {
             GameObject child = oldDesign.transform.GetChild(i).gameObject;
-            GameObject.Destroy(child);
+            if (child != null)
+            {
+                GameObject.Destroy(child);
+            }
         }
         
     }

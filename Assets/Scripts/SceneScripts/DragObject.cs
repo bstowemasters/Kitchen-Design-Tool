@@ -86,8 +86,8 @@ public class DragObject : MonoBehaviour
             if (normal == Vector3.right)
             {
                 // Collision came from left of object
-                float collidedObjWidth = GetPrefabWidth(collidedObj);
-                float xPos = collidedObj.transform.position.x + collidedObjWidth;
+                //float collidedObjWidth = GetPrefabWidth(collidedObj);     //Test to fix collision problems
+                float xPos = transform.position.x;
                 transform.position = new Vector3(xPos, transform.position.y, transform.position.z);
             }
         }
@@ -102,36 +102,6 @@ public class DragObject : MonoBehaviour
         if (collision.gameObject.CompareTag("Cabinet"))
         {
             // onlyFreezeY = true;
-        }
-
-        //Debug collision direction
-
-
-
-        //// Determine the direction of the collision
-        if (normal == Vector3.up)
-        {
-            Debug.Log("Collision came from below");
-        }
-        else if (normal == Vector3.down)
-        {
-            Debug.Log("Collision came from above");
-        }
-        else if (normal == Vector3.left)
-        {
-            Debug.Log("Collision came from the right");
-        }
-        else if (normal == Vector3.right)
-        {
-            Debug.Log("Collision came from the left of object");
-        }
-        else if (normal == Vector3.forward)
-        {
-            Debug.Log("Collision came from behind the object");
-        }
-        else if (normal == Vector3.back)
-        {
-
         }
 
     }
