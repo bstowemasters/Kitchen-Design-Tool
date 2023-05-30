@@ -17,6 +17,8 @@ public class SaveLoadFile : MonoBehaviour
     public Button loadFromFileButton;
 
     public int cabinetFileCount;
+    public bool VR = false;
+
     public List<GameObject> savedComponents = new List<GameObject>();
 
     [System.Serializable]
@@ -104,7 +106,7 @@ public class SaveLoadFile : MonoBehaviour
         {
             Debug.Log("Found save file");
             
-            GameObject parentObj = GameObject.Find("Cabinets");
+            GameObject parentObj = GameObject.Find("CabinetsVR");
 
 
             // Read in the JSON array data from file and convert into readable format.
@@ -146,14 +148,21 @@ public class SaveLoadFile : MonoBehaviour
     {
         GameObject oldDesign = GameObject.Find("Cabinets");
 
-
-        for (int i = 0; i < oldDesign.transform.childCount; i++)
+        if (!VR)
         {
-            GameObject child = oldDesign.transform.GetChild(i).gameObject;
-            if (child != null)
+            for (int i = 0; i < oldDesign.transform.childCount; i++)
             {
-                GameObject.Destroy(child);
+
+                GameObject child = oldDesign.transform.GetChild(i).gameObject;
+                if (child != null)
+                {
+                    GameObject.Destroy(child);
+                }
             }
+        }
+        else
+        {
+            Debug.Log("No Child Elements... Are you using VR?");
         }
 
     }
