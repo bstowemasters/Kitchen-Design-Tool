@@ -930,7 +930,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Save Test
+  m_Text: Save
 --- !u!222 &24766162
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4012,6 +4012,7 @@ MonoBehaviour:
   saveToFileButton: {fileID: 1773639863}
   loadFromFileButton: {fileID: 865814458}
   cabinetFileCount: 0
+  VR: 0
   savedComponents: []
 --- !u!1 &168203389
 GameObject:
@@ -9690,6 +9691,7 @@ MonoBehaviour:
   wall: {fileID: 1961129187}
   newColour: {r: 0.9529412, g: 0.5176471, b: 0.05882353, a: 1}
   newMaterial: {fileID: 0}
+  renderer: {fileID: 0}
 --- !u!1 &444282292
 GameObject:
   m_ObjectHideFlags: 0
@@ -14611,6 +14613,7 @@ MonoBehaviour:
   isHandle: 0
   isFloor: 0
   isWall: 0
+  renderer: {fileID: 0}
 --- !u!114 &677089789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15263,6 +15266,7 @@ MonoBehaviour:
   isHandle: 0
   isFloor: 0
   isWall: 0
+  renderer: {fileID: 0}
 --- !u!114 &713525532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16222,6 +16226,7 @@ MonoBehaviour:
   wall: {fileID: 1961129187}
   newColour: {r: 0, g: 0.74509805, b: 0.16862746, a: 1}
   newMaterial: {fileID: 0}
+  renderer: {fileID: 0}
 --- !u!114 &751151327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17719,7 +17724,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Load Test
+  m_Text: Load
 --- !u!222 &839872671
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23485,6 +23490,7 @@ MonoBehaviour:
   saveToFileButton: {fileID: 0}
   loadFromFileButton: {fileID: 0}
   cabinetFileCount: 0
+  VR: 0
   savedComponents: []
 --- !u!1 &1122023053
 GameObject:
@@ -29433,6 +29439,7 @@ MonoBehaviour:
   isHandle: 0
   isFloor: 0
   isWall: 0
+  renderer: {fileID: 0}
 --- !u!114 &1388938302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31914,6 +31921,7 @@ MonoBehaviour:
   isHandle: 0
   isFloor: 0
   isWall: 0
+  renderer: {fileID: 0}
 --- !u!114 &1478572629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41141,6 +41149,7 @@ MonoBehaviour:
   isHandle: 0
   isFloor: 0
   isWall: 0
+  renderer: {fileID: 0}
 --- !u!1 &1881245972
 GameObject:
   m_ObjectHideFlags: 0
@@ -43616,6 +43625,7 @@ MonoBehaviour:
   wall: {fileID: 1961129187}
   newColour: {r: 0, g: 0.74509805, b: 0.16862746, a: 1}
   newMaterial: {fileID: 0}
+  renderer: {fileID: 0}
 --- !u!1 &2048457692
 GameObject:
   m_ObjectHideFlags: 0
@@ -44802,6 +44812,7 @@ MonoBehaviour:
   wall: {fileID: 1961129187}
   newColour: {r: 0.7921569, g: 0.011764706, b: 0.011764706, a: 1}
   newMaterial: {fileID: 0}
+  renderer: {fileID: 0}
 --- !u!1 &2103122938
 GameObject:
   m_ObjectHideFlags: 0
@@ -45832,6 +45843,7 @@ MonoBehaviour:
   wall: {fileID: 1961129187}
   newColour: {r: 0.101960786, g: 0.3137255, b: 0.9254902, a: 1}
   newMaterial: {fileID: 0}
+  renderer: {fileID: 0}
 --- !u!1 &2132911144
 GameObject:
   m_ObjectHideFlags: 0

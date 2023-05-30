@@ -64,8 +64,8 @@ public class SaveLoadFile : MonoBehaviour
 
             // Get the source prefab of the gameObject instance (to get path of prefab)
 
-            GameObject prefab = (GameObject)PrefabUtility.GetPrefabInstanceHandle(cabinet);
-            string prefabPath = AssetDatabase.GetAssetPath(prefab);
+            //GameObject prefab = (GameObject)PrefabUtility.GetPrefabInstanceHandle(cabinet);
+            //string prefabPath = AssetDatabase.GetAssetPath(prefab);
 
             saveData cabinetData = new saveData();
             cabinetData.componentName = cabinetName;

@@ -3,45 +3,18 @@
     "componentName": "Kitchen Cabinets_100CM Highline Cabinet",
     "SaveIdx": 0,
     "componentPosition": {
-        "x": 0.8000000715255737,
+        "x": -0.4000000059604645,
         "y": 0.0,
-        "z": 1.7000000476837159
+        "z": 4.199999809265137
     }
 },
 {
     "componentName": "Kitchen Cabinets_80CM Highline Cabinet",
     "SaveIdx": 1,
     "componentPosition": {
-        "x": -0.09999999403953552,
+        "x": -1.399999976158142,
         "y": 0.0,
-        "z": 1.7000000476837159
-    }
-},
-{
-    "componentName": "Kitchen Cabinets_40CM Highline Cabinet (1)",
-    "SaveIdx": 2,
-    "componentPosition": {
-        "x": 1.5,
-        "y": 0.0,
-        "z": 1.7000000476837159
-    }
-},
-{
-    "componentName": "Kitchen Cabinets_100CM Bridging Unit",
-    "SaveIdx": 3,
-    "componentPosition": {
-        "x": 0.09999999403953552,
-        "y": 0.0,
-        "z": 1.5999999046325684
-    }
-},
-{
-    "componentName": "Kitchen Cabinets_100CM Bridging Unit",
-    "SaveIdx": 4,
-    "componentPosition": {
-        "x": 1.100000023841858,
-        "y": 0.0,
-        "z": 1.7000000476837159
+        "z": 4.0
     }
 }
 
