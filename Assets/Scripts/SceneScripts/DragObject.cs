@@ -53,7 +53,7 @@ public class DragObject : MonoBehaviour
         // Stores the z position in variable.
         mousePoint.z = mouseZCoord;
 
-        // returns the mouse position
+        // returns the mouse position relative to the screen point
         return Camera.main.ScreenToWorldPoint(mousePoint);
     }
 
